@@ -186,6 +186,8 @@
     }
     .section.panel-active ~ .section.panel-active { border-top: 1px solid var(--line-mid); }
     .section-inner { max-width: 1400px; margin: 0 auto; }
+    #tab-format.panel-active { padding: 0 0 4rem; border-top: none; }
+    #tab-format .section-inner { padding: 2.5rem clamp(1rem,5vw,4rem) 0; }
     .section-title {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2rem, 5vw, 3.2rem);
@@ -1048,12 +1050,12 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
-      padding: 0 0.7rem 0.5rem;
+      padding: 0 0.4rem 0.5rem;
       border-bottom: 1px solid var(--line-mid);
       white-space: nowrap;
     }
     .winners-table td {
-      padding: 0.5rem 0.7rem;
+      padding: 0.5rem 0.4rem;
       border-bottom: 1px solid var(--line);
       color: var(--ink);
       vertical-align: top;
@@ -1655,27 +1657,6 @@
 <body>
 
 <!-- ══ Masthead ══════════════════════════════════════════ -->
-<header class="masthead">
-  <div class="masthead-inner">
-    <div class="masthead-eyebrow">Tournament Guide · FIFA</div>
-    <div class="masthead-title">
-      World Cup
-      <svg class="masthead-underline" height="8" viewBox="0 0 600 8" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 6 Q75 2 150 5 Q225 8 300 4 Q375 1 450 5 Q525 8 600 4" stroke="#1A1916" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <div class="masthead-year">2026 · USA · Canada · Mexico</div>
-  </div>
-</header>
-
-<!-- ══ Welcome intro ═════════════════════════════════════ -->
-<section class="welcome">
-  <div class="welcome-inner">
-    <h2 class="welcome-title">Welcome to the World Cup</h2>
-    <p class="welcome-lead">Every four years, the world comes to a standstill for a single sporting event. Businesses adjust schedules, schools pause lessons, and millions of people gather around televisions and phones to watch the same matches unfold. Few events command global attention on the scale of the FIFA World Cup.</p>
-  </div>
-</section>
-
 <!-- ══ Tab Nav ═══════════════════════════════════════════ -->
 <nav class="tab-nav" role="tablist">
   <div class="tab-nav-inner">
@@ -1696,6 +1677,24 @@
 
   <!-- THE FORMAT -->
   <section id="tab-format" class="section" role="tabpanel" data-panel="format">
+    <header class="masthead">
+      <div class="masthead-inner">
+        <div class="masthead-eyebrow">Tournament Guide · FIFA</div>
+        <div class="masthead-title">
+          World Cup
+          <svg class="masthead-underline" height="8" viewBox="0 0 600 8" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 6 Q75 2 150 5 Q225 8 300 4 Q375 1 450 5 Q525 8 600 4" stroke="#1A1916" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="masthead-year">2026 · USA · Canada · Mexico</div>
+      </div>
+    </header>
+    <section class="welcome">
+      <div class="welcome-inner">
+        <h2 class="welcome-title">Welcome to the World Cup</h2>
+        <p class="welcome-lead">Every four years, the world comes to a standstill for a single sporting event. Businesses adjust schedules, schools pause lessons, and millions of people gather around televisions and phones to watch the same matches unfold. Few events command global attention on the scale of the FIFA World Cup.</p>
+      </div>
+    </section>
     <div class="section-inner">
       <h2 class="section-title">The Format</h2>
       <p class="section-desc">
@@ -2274,7 +2273,7 @@
             <tr>
               <td class="w-year">1934</td>
               <td class="w-winner"><span class="w-flag">🇮🇹</span>Italy</td>
-              <td class="w-score">2–1 <span class="w-note">(a.e.t.)</span></td>
+              <td class="w-score">2–1 <span class="w-note">+</span></td>
               <td>Czechoslovakia</td>
               <td>Rome, Italy</td>
             </tr>
@@ -2316,7 +2315,7 @@
             <tr>
               <td class="w-year">1966</td>
               <td class="w-winner"><span class="w-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>England</td>
-              <td class="w-score">4–2 <span class="w-note">(a.e.t.)</span></td>
+              <td class="w-score">4–2 <span class="w-note">+</span></td>
               <td>West Germany</td>
               <td>London, England</td>
             </tr>
@@ -2337,7 +2336,7 @@
             <tr>
               <td class="w-year">1978</td>
               <td class="w-winner"><span class="w-flag">🇦🇷</span>Argentina</td>
-              <td class="w-score">3–1 <span class="w-note">(a.e.t.)</span></td>
+              <td class="w-score">3–1 <span class="w-note">+</span></td>
               <td>Netherlands</td>
               <td>Buenos Aires, Argentina</td>
             </tr>
@@ -2365,7 +2364,7 @@
             <tr>
               <td class="w-year">1994</td>
               <td class="w-winner"><span class="w-flag">🇧🇷</span>Brazil</td>
-              <td class="w-score">0–0 <span class="w-note">(3–2 pen.)</span></td>
+              <td class="w-score">0–0 <span class="w-note">^3–2</span></td>
               <td>Italy</td>
               <td>Pasadena, United States</td>
             </tr>
@@ -2386,21 +2385,21 @@
             <tr>
               <td class="w-year">2006</td>
               <td class="w-winner"><span class="w-flag">🇮🇹</span>Italy</td>
-              <td class="w-score">1–1 <span class="w-note">(5–3 pen.)</span></td>
+              <td class="w-score">1–1 <span class="w-note">^5–3</span></td>
               <td>France</td>
               <td>Berlin, Germany</td>
             </tr>
             <tr>
               <td class="w-year">2010</td>
               <td class="w-winner"><span class="w-flag">🇪🇸</span>Spain</td>
-              <td class="w-score">1–0 <span class="w-note">(a.e.t.)</span></td>
+              <td class="w-score">1–0 <span class="w-note">+</span></td>
               <td>Netherlands</td>
               <td>Johannesburg, South Africa</td>
             </tr>
             <tr>
               <td class="w-year">2014</td>
               <td class="w-winner"><span class="w-flag">🇩🇪</span>Germany</td>
-              <td class="w-score">1–0 <span class="w-note">(a.e.t.)</span></td>
+              <td class="w-score">1–0 <span class="w-note">+</span></td>
               <td>Argentina</td>
               <td>Rio de Janeiro, Brazil</td>
             </tr>
@@ -2414,14 +2413,14 @@
             <tr>
               <td class="w-year">2022</td>
               <td class="w-winner"><span class="w-flag">🇦🇷</span>Argentina</td>
-              <td class="w-score">3–3 <span class="w-note">(4–2 pen.)</span></td>
+              <td class="w-score">3–3 <span class="w-note">^4–2</span></td>
               <td>France</td>
               <td>Lusail, Qatar</td>
             </tr>
             </tbody>
           </table>
         </div>
-        <div class="winners-key"><span><b>a.e.t.</b> after extra time</span><span><b>pen.</b> won on penalties</span></div>
+        <div class="winners-key"><span><b>+</b> after extra time</span><span><b>^</b> won on penalties</span></div>
 
         <div class="titles-box">
           <div class="titles-head">Titles Won · By Nation</div>
@@ -2536,7 +2535,7 @@
     <div class="section-inner">
       <h2 class="section-title">Performances</h2>
       <p class="section-desc">
-        Beyond the action on the field, the 2026 FIFA World Cup will make history by introducing the tournament's first-ever halftime show during the Final on July 19. The addition reflects FIFA's effort to further elevate the event as both a sporting competition and a global entertainment showcase.
+        Beyond the action on the field, the 2026 FIFA World Cup will make history by introducing the tournament's first ever halftime show during the Final on July 19. The addition reflects FIFA's effort to further elevate the event as both a sporting competition and a global entertainment showcase.
       </p>
 
       <div class="format-extra">
@@ -2593,12 +2592,61 @@
           </div>
           <p class="fmt-note">JUNE 12 · BEFORE CANADA'S HOME OPENER</p>
         </div>
+
+        <!-- USA Performers Spotlight -->
+        <div class="fmt-block" style="grid-column: span 2">
+          <div class="fmt-block-head">United States Performers Spotlight</div>
+
+          <div style="
+            display:grid;
+            grid-template-columns:320px 1fr;
+            gap:24px;
+            align-items:center;
+          ">
+
+            <!-- Image -->
+            <div>
+              <img
+                src="assets/images/usa-opening-performers.jpg"
+                alt="Performers from the United States Opening Ceremony"
+                style="
+                  width:100%;
+                  aspect-ratio:1/1;
+                  object-fit:cover;
+                  border-radius:18px;
+                  display:block;
+                ">
+            </div>
+
+            <!-- Content -->
+            <div>
+              <p class="fmt-block-lead">
+                The United States opening ceremony brought together artists from across pop, hip-hop, Afrobeats, and K-pop, reflecting both the country's cultural diversity and the global nature of the FIFA World Cup. The performance blended music, storytelling, and stadium-scale visuals to welcome fans from around the world.
+              </p>
+
+              <div class="rule-item">
+                <div class="rule-title">Featured Performers</div>
+                <div class="rule-desc">
+                  Katy Perry · Future · Anitta · LISA · Rema · Tyla
+                </div>
+              </div>
+
+              <div class="rule-item">
+                <div class="rule-title">Venue</div>
+                <div class="rule-desc">
+                  SoFi Stadium · Los Angeles, California
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
         <!-- Official Announcement -->
         <div class="fmt-block" style="grid-column: span 2">
           <div class="fmt-block-head">Official Announcement</div>
 
           <p class="fmt-block-lead">
-            FIFA announced the first-ever FIFA World Cup Final Halftime Show, bringing music and football together on the world's biggest sporting stage.
+            FIFA announced the first ever FIFA World Cup Final Halftime Show, bringing music and football together on the world's biggest sporting stage.
           </p>
 
           <div style="margin-top:16px;border-radius:18px;overflow:hidden">
@@ -2630,29 +2678,39 @@
         ">
           
           <!-- Performer Image -->
-          <div>
-            <img
-              src="assets/images/fans-react-halftime.png"
-              alt="Featured halftime show performer"
-              style="
-                width:100%;
-                aspect-ratio:1/1;
-                object-fit:cover;
-                object-position:center top;
-                border-radius:18px;
-                display:block;
-              ">
-          </div>
+        <div>
+          <img
+            src="assets/images/fans-react-halftime.png"
+            alt="Featured halftime show performer"
+            style="
+              width:100%;
+              aspect-ratio:1/1;
+              object-fit:cover;
+              object-position:center top;
+              border-radius:18px;
+              display:block;
+            ">
+        </div>
 
-          <!-- Content -->
-          <div>
-            <p class="fmt-block-lead">
-              The announcement of the first ever FIFA World Cup Final Halftime Show immediately captured the attention of football and music fans around the world. Social media quickly filled with reactions, predictions, and excitement as supporters debated who could headline one of the most watched events on the planet.
-            </p>
-            <p class="fmt-note">
-              Football. Music. One Global Stage.
-            </p>
-          </div>
+        <!-- Content -->
+        <div>
+          <p class="fmt-block-lead">
+            The announcement of the first ever FIFA World Cup Final Halftime Show immediately captured global attention. When BTS was revealed as the headliner, social media filled with excitement, predictions, and memes as BTS fans and football fans collided online in one of the tournament's most unexpected storylines.
+          </p>
+          <a
+            href="https://youtube.com/shorts/3ZOFQ33sLBE?si=2-S9rl5ntt-btrkS"
+            target="_blank"
+            style="
+              display:inline-block;
+              margin-top:12px;
+              font-weight:700;
+              text-decoration:none;
+              color:var(--fmt-accent);
+            "
+          >
+            Who is BTS? →
+          </a>
+        </div>
 
         </div>
       </div>
@@ -3087,7 +3145,7 @@ function showBaseCampMap() {
   if (!_map) _map = initMap();
   if (!_map) return;
   // Wait for the panel to actually be visible/painted, then recompute size.
-  const fix = () => { try { _map.invalidateSize(); _map.setView([38, -96], 4); } catch(e){} };
+  const fix = () => { try { _map.invalidateSize(); _map.setView([38, -96], mapZoom()); } catch(e){} };
   requestAnimationFrame(() => { requestAnimationFrame(fix); });
   setTimeout(fix, 120);
   setTimeout(fix, 400);
@@ -3441,10 +3499,12 @@ FIFA_RANKINGS.forEach((r, i) => {
 // MAP
 // ══════════════════════════════════════════════════════════════
 
+function mapZoom() { return window.innerWidth < 600 ? 3 : 4; }
+
 function initMap() {
   const map = L.map('venues-map', {
     center: [38, -96],
-    zoom: 4,
+    zoom: mapZoom(),
     scrollWheelZoom: false,
     doubleClickZoom: false,
     touchZoom: false,
