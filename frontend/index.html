@@ -1420,8 +1420,8 @@
       font-size: 1.15rem;
       letter-spacing: 0.02em;
     }
-    .prize-table tr.prize-champ td { color: #8A5A12; font-weight: 600; }
-    .prize-table tr.prize-champ td:last-child { color: #8A5A12; }
+    .prize-table tr.prize-champ td { color: #448a12; font-weight: 600; }
+    .prize-table tr.prize-champ td:last-child { color: #448a12; }
     .prize-stage { color: var(--ink-soft); }
 
     /* ── Learn (Sacred Guide) ── */
@@ -2175,29 +2175,20 @@
           </summary>
           <div class="ch-body">
             <ul class="plain-list">
+              <li>🇲🇦 Achraf Hakimi</li>
+              <li>🇯🇵 Takefusa Kubo</li>
+              <li>🇪🇬 Mohamed Salah</li>
+              <li>🇳🇬 Victor Osimhen</li>
               <li>🇦🇷 Lionel Messi</li>
-              <li>🇫🇷 Kylian Mbappe</li>
-              <li>🇵🇹 Cristiano Ronaldo</li>
-              <li>🇺🇸 Christian Pulisic</li>
-            </ul>
-
-            <p class="ch-lead">Underdog Heroes</p>
-            <p>Every World Cup creates new legends. These are players who may not be global superstars yet but could carry their countries on a memorable run:</p>
-            <div class="ch-grid2">
-              <div class="ch-minicard"><p><strong>🇲🇦 Achraf Hakimi</strong></p><p>Morocco</p></div>
-              <div class="ch-minicard"><p><strong>🇯🇵 Takefusa Kubo</strong></p><p>Japan</p></div>
-              <div class="ch-minicard"><p><strong>🇪🇬 Mohamed Salah</strong></p><p>Egypt</p></div>
-              <div class="ch-minicard"><p><strong>🇳🇬 Victor Osimhen</strong></p><p>Nigeria, if qualified</p></div>
-            </div>
-
-            <p class="ch-lead">If You Only Remember Five Names</p>
-            <ol class="tiebreak-list">
               <li>🇫🇷 Kylian Mbappe</li>
               <li>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Jude Bellingham</li>
               <li>🇧🇷 Vinicius Junior</li>
               <li>🇪🇸 Lamine Yamal</li>
               <li>🇳🇴 Erling Haaland</li>
-            </ol>
+              <li>🇫🇷 Kylian Mbappe</li>
+              <li>🇵🇹 Cristiano Ronaldo</li>
+              <li>🇺🇸 Christian Pulisic</li>
+            </ul>
           </div>
         </details>
 
@@ -2656,17 +2647,8 @@
           <!-- Content -->
           <div>
             <p class="fmt-block-lead">
-              The announcement of the first-ever FIFA World Cup Final Halftime Show immediately captured the attention of football and music fans around the world. Social media quickly filled with reactions, predictions, and excitement as supporters debated who could headline one of the most-watched events on the planet.
+              The announcement of the first ever FIFA World Cup Final Halftime Show immediately captured the attention of football and music fans around the world. Social media quickly filled with reactions, predictions, and excitement as supporters debated who could headline one of the most watched events on the planet.
             </p>
-
-            <p>
-              For many fans, the halftime show represents a new chapter in World Cup history. While the tournament has always celebrated culture through opening ceremonies and host nation traditions, the 2026 Final will introduce a dedicated halftime performance for the first time ever.
-            </p>
-
-            <p>
-              Whether supporters embrace the change or prefer the tournament's traditional format, the announcement has already become one of the most discussed moments leading into the 2026 FIFA World Cup.
-            </p>
-
             <p class="fmt-note">
               Football. Music. One Global Stage.
             </p>
@@ -2914,7 +2896,7 @@ const FIXTURES = [
   { iso:'2026-06-13T01:00:00Z', home:"USA", hf:"🇺🇸", away:"Paraguay", af:"🇵🇾", hs:4,as:1},
   { iso:'2026-06-13T19:00:00Z', home:"Qatar", hf:"🇶🇦", away:"Switzerland", af:"🇨🇭", hs:1, as:1},
   { iso:'2026-06-13T22:00:00Z', home:"Brazil", hf:"🇧🇷", away:"Morocco", af:"🇲🇦", hs:1, as:1},
-  { iso:'2026-06-14T01:00:00Z', home:"Haiti", hf:"🇭🇹", away:"Scotland", af:"🏴", hs:0,as:1},
+  { iso:'2026-06-14T01:00:00Z', home:"Haiti", hf:"🇭🇹", away:"Scotland", af:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", hs:0,as:1},
   { iso:'2026-06-14T04:00:00Z', home:"Australia", hf:"🇦🇺", away:"Turkiye", af:"🇹🇷", hs:2,as:0},
   { iso:'2026-06-14T17:00:00Z', home:"Germany", hf:"🇩🇪", away:"Curacao", af:"🇨🇼"},
   { iso:'2026-06-14T20:00:00Z', home:"Netherlands", hf:"🇳🇱", away:"Japan", af:"🇯🇵"},
@@ -3014,7 +2996,7 @@ const FIXTURES = [
   { iso:'2026-07-19T19:00:00Z', home:"Winner SF 1", hf:"", away:"Winner SF 2", af:"", ko:true },
 ];
 
-// Pre-tournament FIFA rankings (approximate — verify before publishing)
+// Pre-tournament FIFA rankings (approximate)
 const FIFA_RANKINGS = [
   { name:'France', flag:'🇫🇷', pts:1854, wr:1 },
   { name:'Spain', flag:'🇪🇸', pts:1838, wr:2 },
