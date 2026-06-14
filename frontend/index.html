@@ -1629,7 +1629,12 @@
       .bracket-row { grid-template-columns: 1.4rem 1fr auto; gap: 0.6rem; padding: 0.85rem 0.9rem; }
       .bracket-round-name { font-size: 1rem; }
       .bracket-sub { font-size: 0.7rem; }
-      .prize-table, .winners-table { font-size: 0.74rem; }
+      .prize-table { font-size: 0.74rem; }
+      .winners-table { font-size: 0.67rem; min-width: 0; }
+      .winners-table th { padding: 0 0.32rem 0.4rem; font-size: 0.52rem; }
+      .winners-table td { padding: 0.28rem 0.32rem; }
+      .w-winner { white-space: normal; }
+      .w-score { white-space: nowrap; }
       .ch-summary { padding: 0.8rem 0.9rem; gap: 0.7rem; }
       .ch-title { font-size: 0.95rem; }
       .ch-body { padding: 0.5rem 1rem 1.1rem; }
@@ -1638,7 +1643,7 @@
       .timeline-grid { min-width: 600px; }
       .rank-chart { max-width: 100%; }
       .rank-axis, .rankings-row { grid-template-columns: 5.5rem 1fr 2.4rem; gap: 0.4rem; }
-      .winners-table { min-width: 440px; }
+      /* winners-table min-width handled in 480px block above */
       .day-nav-wrap { flex-wrap: wrap; gap: 0.6rem; }
     }
     @media (max-width: 380px) {
@@ -2540,7 +2545,7 @@
     <div class="section-inner">
       <h2 class="section-title">Performances</h2>
       <p class="section-desc">
-        Music and entertainment across the tournament — from three simultaneous opening ceremonies spanning the host nations to the Final halftime show on July 19.
+        Beyond the action on the field, the 2026 FIFA World Cup will make history by introducing the tournament's first-ever halftime show during the Final on July 19. The addition reflects FIFA's effort to further elevate the event as both a sporting competition and a global entertainment showcase.
       </p>
 
       <div class="format-extra">
@@ -2548,7 +2553,7 @@
         <!-- Final Halftime Show -->
         <div class="fmt-block" style="grid-column: span 2">
           <div class="fmt-block-head">Final Halftime Show · July 19</div>
-          <p class="fmt-block-lead">Madonna, Shakira, and BTS co-headline the historic FIFA World Cup 2026™ Final Halftime Show at New York New Jersey Stadium. Curated by Chris Martin of Coldplay and broadcast live worldwide. The show supports the FIFA Global Citizen Education Fund — a USD 100 million initiative to expand access to quality education and football for children globally, with over USD 30 million already raised.</p>
+          <p class="fmt-block-lead">The 2026 FIFA World Cup Final will introduce a historic first: a halftime show. Scheduled for July 19 at New York New Jersey Stadium, the event is expected to feature performances by Madonna, Shakira, and BTS, with creative direction from Chris Martin of Coldplay. The show will also help support the FIFA Global Citizen Education Fund, which aims to raise $100 million to improve access to education and football programs for children around the world.</p>
           <div class="rule-item">
             <div class="rule-title">Headliners</div>
             <div class="rule-desc">Madonna · Shakira · BTS</div>
@@ -2563,7 +2568,7 @@
           </div>
           <div class="rule-item">
             <div class="rule-title">Cause</div>
-            <div class="rule-desc">FIFA Global Citizen Education Fund — USD 100M target for children's education and football access worldwide.</div>
+            <div class="rule-desc">FIFA Global Citizen Education Fund</div>
           </div>
           <p class="fmt-note">JULY 19 · NEW YORK NEW JERSEY STADIUM · LIVE BROADCAST WORLDWIDE</p>
         </div>
@@ -2571,7 +2576,7 @@
         <!-- Mexico Opening Ceremony -->
         <div class="fmt-block">
           <div class="fmt-block-head">Mexico Opening Ceremony · June 11</div>
-          <p class="fmt-block-lead">Estadio Azteca, Mexico City — ahead of Mexico vs South Africa. A celebration of Latin music spanning rock, ranchera, cumbia, and reggaeton across generations.</p>
+          <p class="fmt-block-lead">Before the first ball was kicked, Estadio Azteca set the stage for the 2026 FIFA World Cup with a celebration of Latin America's musical heritage. The opening ceremony featured a blend of rock, ranchera, cumbia, and reggaeton, honoring both legendary performers and contemporary artists while welcoming the world to Mexico for football's biggest tournament.</p>
           <div class="rule-item">
             <div class="rule-title">Performers</div>
             <div class="rule-desc">Maná · Alejandro Fernández · Belinda · Lila Downs · Los Ángeles Azules · Shakira · J Balvin · Tyla · Burna Boy · Danny Ocean</div>
@@ -2586,7 +2591,7 @@
         <!-- Canada Opening Ceremony -->
         <div class="fmt-block">
           <div class="fmt-block-head">Canada Opening Ceremony · June 12</div>
-          <p class="fmt-block-lead">BMO Field, Toronto — ahead of Canada's first ever home World Cup match. Themed as a "cultural mosaic" celebrating the country's diversity through music.</p>
+          <p class="fmt-block-lead">Before Canada's first-ever home FIFA World Cup match, BMO Field hosted an opening ceremony centered on the theme of a "cultural mosaic." The celebration showcased Canada's multicultural identity through music and performances representing communities from across the country.</p>
           <div class="rule-item">
             <div class="rule-title">Performers</div>
             <div class="rule-desc">Michael Bublé · Alessia Cara · Jessie Reyez · Elyanna · Nora Fatehi · Sanjoy · Vegedream · William Prince</div>
@@ -2597,28 +2602,78 @@
           </div>
           <p class="fmt-note">JUNE 12 · BEFORE CANADA'S HOME OPENER</p>
         </div>
-
-        <!-- USA Opening Ceremony -->
-        <div class="fmt-block">
-          <div class="fmt-block-head">USA Opening Ceremony · June 12</div>
-          <p class="fmt-block-lead">SoFi Stadium, Los Angeles — ahead of the US opener. A globally diverse lineup spanning pop, hip-hop, Afrobeats, and K-pop.</p>
-          <div class="rule-item">
-            <div class="rule-title">Performers</div>
-            <div class="rule-desc">Katy Perry · Future · Anitta · LISA · Rema · Tyla</div>
-          </div>
-          <div class="rule-item">
-            <div class="rule-title">Venue</div>
-            <div class="rule-desc">SoFi Stadium, Los Angeles</div>
-          </div>
-          <p class="fmt-note">JUNE 12 · BEFORE USA'S HOME OPENER</p>
-        </div>
-
-        <!-- About -->
+        <!-- Official Announcement -->
         <div class="fmt-block" style="grid-column: span 2">
-          <div class="fmt-block-head">About</div>
-          <p class="fmt-block-lead">This is the first World Cup to host opening ceremonies simultaneously across three countries. Each host nation launched its own first match with its own ceremony on home soil — making 2026 the most culturally expansive tournament in World Cup history.</p>
-          <p class="fmt-note">SOURCES: FIFA.COM · CNN · ESPN · NPR · UPDATED JUNE 2026</p>
+          <div class="fmt-block-head">Official Announcement</div>
+
+          <p class="fmt-block-lead">
+            FIFA announced the first-ever FIFA World Cup Final Halftime Show, bringing music and football together on the world's biggest sporting stage.
+          </p>
+
+          <div style="margin-top:16px;border-radius:18px;overflow:hidden">
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/vijhodcfpx0"
+              title="FIFA World Cup 2026 Final Halftime Show Announcement"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <p class="fmt-note">
+            Watch the official FIFA World Cup 2026™ Final Halftime Show announcement.
+          </p>
         </div>
+
+        <!-- Fans React -->
+      <div class="fmt-block" style="grid-column: span 2">
+        <div class="fmt-block-head">Fans React</div>
+
+        <div style="
+          display:grid;
+          grid-template-columns: 320px 1fr;
+          gap:24px;
+          align-items:center;
+        ">
+          
+          <!-- Performer Image -->
+          <div>
+            <img
+              src="assets/images/fans-react-halftime.png"
+              alt="Featured halftime show performer"
+              style="
+                width:100%;
+                aspect-ratio:1/1;
+                object-fit:cover;
+                object-position:center top;
+                border-radius:18px;
+                display:block;
+              ">
+          </div>
+
+          <!-- Content -->
+          <div>
+            <p class="fmt-block-lead">
+              The announcement of the first-ever FIFA World Cup Final Halftime Show immediately captured the attention of football and music fans around the world. Social media quickly filled with reactions, predictions, and excitement as supporters debated who could headline one of the most-watched events on the planet.
+            </p>
+
+            <p>
+              For many fans, the halftime show represents a new chapter in World Cup history. While the tournament has always celebrated culture through opening ceremonies and host nation traditions, the 2026 Final will introduce a dedicated halftime performance for the first time ever.
+            </p>
+
+            <p>
+              Whether supporters embrace the change or prefer the tournament's traditional format, the announcement has already become one of the most discussed moments leading into the 2026 FIFA World Cup.
+            </p>
+
+            <p class="fmt-note">
+              Football. Music. One Global Stage.
+            </p>
+          </div>
+
+        </div>
+      </div>
 
       </div>
     </div>
@@ -2853,21 +2908,21 @@ const BASECAMPS = [
 
 // Real FIFA World Cup 2026 fixtures (from official schedule). Times stored in UTC; rendered in the viewer's local time.
 const FIXTURES = [
-  { iso:'2026-06-11T19:00:00Z', home:"Mexico", hf:"🇲🇽", away:"South Africa", af:"🇿🇦", hs:2,as:0 },
-  { iso:'2026-06-12T02:00:00Z', home:"South Korea", hf:"🇰🇷", away:"Czechia", af:"🇨🇿", hs:2,as:1 },
-  { iso:'2026-06-12T19:00:00Z', home:"Canada", hf:"🇨🇦", away:"Bosnia and Herzegovina", af:"🇧🇦", hs:1,as:1 },
-  { iso:'2026-06-13T01:00:00Z', home:"USA", hf:"🇺🇸", away:"Paraguay", af:"🇵🇾", hs:4,as:1 },
-  { iso:'2026-06-13T19:00:00Z', home:"Qatar", hf:"🇶🇦", away:"Switzerland", af:"🇨🇭", hs:0,as:0 },
-  { iso:'2026-06-13T22:00:00Z', home:"Brazil", hf:"🇧🇷", away:"Morocco", af:"🇲🇦" },
-  { iso:'2026-06-14T01:00:00Z', home:"Haiti", hf:"🇭🇹", away:"Scotland", af:"🏴󠁧󠁢󠁳󠁣󠁴󠁿" },
-  { iso:'2026-06-14T04:00:00Z', home:"Australia", hf:"🇦🇺", away:"Turkiye", af:"🇹🇷" },
-  { iso:'2026-06-14T17:00:00Z', home:"Germany", hf:"🇩🇪", away:"Curacao", af:"🇨🇼" },
-  { iso:'2026-06-14T20:00:00Z', home:"Netherlands", hf:"🇳🇱", away:"Japan", af:"🇯🇵" },
-  { iso:'2026-06-14T23:00:00Z', home:"Ivory Coast", hf:"🇨🇮", away:"Ecuador", af:"🇪🇨" },
-  { iso:'2026-06-15T02:00:00Z', home:"Sweden", hf:"🇸🇪", away:"Tunisia", af:"🇹🇳" },
-  { iso:'2026-06-15T16:00:00Z', home:"Spain", hf:"🇪🇸", away:"Cape Verde", af:"🇨🇻" },
-  { iso:'2026-06-15T19:00:00Z', home:"Belgium", hf:"🇧🇪", away:"Egypt", af:"🇪🇬" },
-  { iso:'2026-06-15T22:00:00Z', home:"Saudi Arabia", hf:"🇸🇦", away:"Uruguay", af:"🇺🇾" },
+  { iso:'2026-06-11T19:00:00Z', home:"Mexico", hf:"🇲🇽", away:"South Africa", af:"🇿🇦", hs:2,as:0},
+  { iso:'2026-06-12T02:00:00Z', home:"South Korea", hf:"🇰🇷", away:"Czechia", af:"🇨🇿", hs:2,as:1},
+  { iso:'2026-06-12T19:00:00Z', home:"Canada", hf:"🇨🇦", away:"Bosnia and Herzegovina", af:"🇧🇦", hs:1,as:1},
+  { iso:'2026-06-13T01:00:00Z', home:"USA", hf:"🇺🇸", away:"Paraguay", af:"🇵🇾", hs:4,as:1},
+  { iso:'2026-06-13T19:00:00Z', home:"Qatar", hf:"🇶🇦", away:"Switzerland", af:"🇨🇭", hs:1, as:1},
+  { iso:'2026-06-13T22:00:00Z', home:"Brazil", hf:"🇧🇷", away:"Morocco", af:"🇲🇦", hs:1, as:1},
+  { iso:'2026-06-14T01:00:00Z', home:"Haiti", hf:"🇭🇹", away:"Scotland", af:"🏴", hs:0,as:1},
+  { iso:'2026-06-14T04:00:00Z', home:"Australia", hf:"🇦🇺", away:"Turkiye", af:"🇹🇷", hs:2,as:0},
+  { iso:'2026-06-14T17:00:00Z', home:"Germany", hf:"🇩🇪", away:"Curacao", af:"🇨🇼"},
+  { iso:'2026-06-14T20:00:00Z', home:"Netherlands", hf:"🇳🇱", away:"Japan", af:"🇯🇵"},
+  { iso:'2026-06-14T23:00:00Z', home:"Ivory Coast", hf:"🇨🇮", away:"Ecuador", af:"🇪🇨"},
+  { iso:'2026-06-15T02:00:00Z', home:"Sweden", hf:"🇸🇪", away:"Tunisia", af:"🇹🇳"},
+  { iso:'2026-06-15T16:00:00Z', home:"Spain", hf:"🇪🇸", away:"Cape Verde", af:"🇨🇻"},
+  { iso:'2026-06-15T19:00:00Z', home:"Belgium", hf:"🇧🇪", away:"Egypt", af:"🇪🇬"},
+  { iso:'2026-06-15T22:00:00Z', home:"Saudi Arabia", hf:"🇸🇦", away:"Uruguay", af:"🇺🇾"},
   { iso:'2026-06-16T01:00:00Z', home:"Iran", hf:"🇮🇷", away:"New Zealand", af:"🇳🇿" },
   { iso:'2026-06-16T19:00:00Z', home:"France", hf:"🇫🇷", away:"Senegal", af:"🇸🇳" },
   { iso:'2026-06-16T22:00:00Z', home:"Iraq", hf:"🇮🇶", away:"Norway", af:"🇳🇴" },
