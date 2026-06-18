@@ -1017,6 +1017,102 @@
       color: var(--muted);
       font-style: italic;
     }
+    /* ── Group Standings ── */
+    .standings-section {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line-mid);
+    }
+    .standings-intro {
+      font-size: 0.86rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      max-width: 62ch;
+    }
+    .standings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 0.9rem;
+    }
+    .sgroup-block {
+      border: 1px solid var(--line-mid);
+      border-radius: 4px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.42);
+    }
+    .sgroup-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem 0.45rem;
+      border-bottom: 1px solid var(--line-mid);
+      border-left: 3px solid transparent;
+    }
+    .sgroup-letter {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+    .sgroup-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .sgroup-table thead th {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.56rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.28rem 0.5rem;
+      text-align: right;
+      font-weight: 400;
+      border-bottom: 1px solid var(--line-mid);
+    }
+    .sgroup-table thead th.sc-team { text-align: left; }
+    .sgroup-table tbody td {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.32rem 0.5rem;
+      text-align: right;
+      color: var(--ink-soft);
+      border-bottom: 1px solid rgba(26,25,22,0.04);
+    }
+    .sgroup-table tbody tr:last-child td { border-bottom: none; }
+    .sgroup-table tbody td.sc-team {
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.76rem;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .sgroup-table tbody tr.row-q { background: rgba(78,138,104,0.06); }
+    .sgroup-table tbody tr.row-e td { color: var(--muted); }
+    .sgroup-table tbody td.sc-pos {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      padding-left: 0.6rem;
+    }
+    .spos {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 17px;
+      height: 17px;
+      border-radius: 3px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .spos.pos-q { background: #4E8A68; }
+    .spos.pos-t { background: var(--gd); }
+    .spos.pos-e { background: var(--muted); }
+    .arr-up { font-size: 0.5rem; color: #4E8A68; line-height: 1; }
+    .arr-dn { font-size: 0.5rem; color: #B5614A; line-height: 1; }
+    .s-flag { margin-right: 0.3rem; }
     /* ── Past winners table ── */
     .winners-section {
       margin-top: 2.5rem;
@@ -1715,6 +1811,12 @@
         <div class="groups-grid" id="groups-grid"></div>
       </div>
 
+      <div class="standings-section">
+        <h3 class="section-title" style="font-size:1.1rem;margin-bottom:0.4rem">Group Standings</h3>
+        <p class="standings-intro">Live standings computed from played matches. Green = qualifies, gold = possible best third, grey = eliminated.</p>
+        <div class="standings-grid" id="standings-grid"></div>
+      </div>
+
       <div class="timeline-section" style="display:none">
         <div class="timeline-head">
           <span class="timeline-title">The Schedule at a Glance</span>
@@ -2243,16 +2345,13 @@
       <h2 class="section-title">The Ranking</h2>
       <p class="section-desc">FIFA pre-tournament rankings. All 48 qualified nations, ranked by points.</p>
       <div class="rankings-wrap">
-        <div class="rank-chart">
-          <div class="rank-axis">
-            <span class="rank-axis-head">Team</span>
-            <div class="rank-axis-track" id="rank-axis-track"></div>
-            <span class="rank-axis-head r-end">Rank</span>
-          </div>
-          <div class="rankings-list" id="rankings-list"></div>
-        </div>
+        <img
+          src="assets/images/rankings.png"
+          alt="FIFA Rankings lollipop chart — all 48 qualified nations ranked by points"
+          style="width:100%;max-width:760px;display:block;border-radius:4px;border:1px solid var(--line-mid);"
+        />
       </div>
-      <p class="rankings-note">Bars show FIFA points (pre-tournament). Number on the right is each team's world rank. Host nations are highlighted in green; the top three in gold. Figures are approximate.</p>
+      <p class="rankings-note">Bars show FIFA points (pre-tournament). Number on the right is each team's world rank. Host nations are highlighted in blue; the top three in gold. Regenerate with <code style="font-size:0.7rem;">python3 analytics/scripts/rankings_chart.py</code>.</p>
 
       <div class="winners-section">
         <div class="winners-title">Past Champions</div>
@@ -2956,22 +3055,22 @@ const FIXTURES = [
   { iso:'2026-06-13T22:00:00Z', home:"Brazil", hf:"🇧🇷", away:"Morocco", af:"🇲🇦", hs:1, as:1},
   { iso:'2026-06-14T01:00:00Z', home:"Haiti", hf:"🇭🇹", away:"Scotland", af:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", hs:0,as:1},
   { iso:'2026-06-14T04:00:00Z', home:"Australia", hf:"🇦🇺", away:"Turkiye", af:"🇹🇷", hs:2,as:0},
-  { iso:'2026-06-14T17:00:00Z', home:"Germany", hf:"🇩🇪", away:"Curacao", af:"🇨🇼"},
-  { iso:'2026-06-14T20:00:00Z', home:"Netherlands", hf:"🇳🇱", away:"Japan", af:"🇯🇵"},
-  { iso:'2026-06-14T23:00:00Z', home:"Ivory Coast", hf:"🇨🇮", away:"Ecuador", af:"🇪🇨"},
-  { iso:'2026-06-15T02:00:00Z', home:"Sweden", hf:"🇸🇪", away:"Tunisia", af:"🇹🇳"},
-  { iso:'2026-06-15T16:00:00Z', home:"Spain", hf:"🇪🇸", away:"Cape Verde", af:"🇨🇻"},
-  { iso:'2026-06-15T19:00:00Z', home:"Belgium", hf:"🇧🇪", away:"Egypt", af:"🇪🇬"},
-  { iso:'2026-06-15T22:00:00Z', home:"Saudi Arabia", hf:"🇸🇦", away:"Uruguay", af:"🇺🇾"},
-  { iso:'2026-06-16T01:00:00Z', home:"Iran", hf:"🇮🇷", away:"New Zealand", af:"🇳🇿" },
-  { iso:'2026-06-16T19:00:00Z', home:"France", hf:"🇫🇷", away:"Senegal", af:"🇸🇳" },
-  { iso:'2026-06-16T22:00:00Z', home:"Iraq", hf:"🇮🇶", away:"Norway", af:"🇳🇴" },
-  { iso:'2026-06-17T01:00:00Z', home:"Argentina", hf:"🇦🇷", away:"Algeria", af:"🇩🇿" },
-  { iso:'2026-06-17T04:00:00Z', home:"Austria", hf:"🇦🇹", away:"Jordan", af:"🇯🇴" },
-  { iso:'2026-06-17T17:00:00Z', home:"Portugal", hf:"🇵🇹", away:"DR Congo", af:"" },
-  { iso:'2026-06-17T20:00:00Z', home:"England", hf:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", away:"Croatia", af:"🇭🇷" },
-  { iso:'2026-06-17T23:00:00Z', home:"Ghana", hf:"🇬🇭", away:"Panama", af:"🇵🇦" },
-  { iso:'2026-06-18T02:00:00Z', home:"Uzbekistan", hf:"🇺🇿", away:"Colombia", af:"🇨🇴" },
+  { iso:'2026-06-14T17:00:00Z', home:"Germany", hf:"🇩🇪", away:"Curacao", af:"🇨🇼", hs:7, as:1},
+  { iso:'2026-06-14T20:00:00Z', home:"Netherlands", hf:"🇳🇱", away:"Japan", af:"🇯🇵", hs:2, as:2},
+  { iso:'2026-06-14T23:00:00Z', home:"Ivory Coast", hf:"🇨🇮", away:"Ecuador", af:"🇪🇨", hs:1, as:0},
+  { iso:'2026-06-15T02:00:00Z', home:"Sweden", hf:"🇸🇪", away:"Tunisia", af:"🇹🇳", hs:5, as:1},
+  { iso:'2026-06-15T16:00:00Z', home:"Spain", hf:"🇪🇸", away:"Cape Verde", af:"🇨🇻", hs:0, as:0},
+  { iso:'2026-06-15T19:00:00Z', home:"Belgium", hf:"🇧🇪", away:"Egypt", af:"🇪🇬", hs:1, as:1},
+  { iso:'2026-06-15T22:00:00Z', home:"Saudi Arabia", hf:"🇸🇦", away:"Uruguay", af:"🇺🇾", hs:1, as:1},
+  { iso:'2026-06-16T01:00:00Z', home:"Iran", hf:"🇮🇷", away:"New Zealand", af:"🇳🇿", hs:2, as:2},
+  { iso:'2026-06-16T19:00:00Z', home:"France", hf:"🇫🇷", away:"Senegal", af:"🇸🇳", hs:3, as:1},
+  { iso:'2026-06-16T22:00:00Z', home:"Iraq", hf:"🇮🇶", away:"Norway", af:"🇳🇴", hs:1, as:4},
+  { iso:'2026-06-17T01:00:00Z', home:"Argentina", hf:"🇦🇷", away:"Algeria", af:"🇩🇿", hs:3, as:0},
+  { iso:'2026-06-17T04:00:00Z', home:"Austria", hf:"🇦🇹", away:"Jordan", af:"🇯🇴", hs:3, as:1},
+  { iso:'2026-06-17T17:00:00Z', home:"Portugal", hf:"🇵🇹", away:"DR Congo", af:"", hs:1, as:1},
+  { iso:'2026-06-17T20:00:00Z', home:"England", hf:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", away:"Croatia", af:"🇭🇷", hs:4, as:2},
+  { iso:'2026-06-17T23:00:00Z', home:"Ghana", hf:"🇬🇭", away:"Panama", af:"🇵🇦", hs:1, as:0},
+  { iso:'2026-06-18T02:00:00Z', home:"Uzbekistan", hf:"🇺🇿", away:"Colombia", af:"🇨🇴", hs:1, as:3},
   { iso:'2026-06-18T16:00:00Z', home:"Czechia", hf:"🇨🇿", away:"South Africa", af:"🇿🇦" },
   { iso:'2026-06-18T19:00:00Z', home:"Switzerland", hf:"🇨🇭", away:"Bosnia and Herzegovina", af:"🇧🇦" },
   { iso:'2026-06-18T22:00:00Z', home:"Canada", hf:"🇨🇦", away:"Qatar", af:"🇶🇦" },
@@ -3053,6 +3152,36 @@ const FIXTURES = [
   { iso:'2026-07-18T21:00:00Z', home:"Loser SF 1", hf:"", away:"Loser SF 2", af:"", ko:true },
   { iso:'2026-07-19T19:00:00Z', home:"Winner SF 1", hf:"", away:"Winner SF 2", af:"", ko:true },
 ];
+
+// Live score merge — fetch from proxy, update FIXTURES in place, re-render
+(async function mergeLiveScores() {
+  try {
+    const res = await fetch('/api/fixtures');
+    if (!res.ok) return;
+    const json = await res.json();
+    const apiFixtures = json.response || [];
+
+    apiFixtures.forEach(af => {
+      const apiTs = new Date(af.fixture.date).getTime();
+      const status = af.fixture.status.short;
+      const finished = ['FT', 'AET', 'PEN'].includes(status);
+      if (!finished) return;
+      const hs = af.goals.home;
+      const as = af.goals.away;
+      if (hs === null || as === null) return;
+
+      // Match by kickoff timestamp (within 5 min tolerance)
+      const match = FIXTURES.find(f => Math.abs(new Date(f.iso).getTime() - apiTs) < 5 * 60 * 1000);
+      if (match) {
+        match.hs = hs;
+        match.as = as;
+      }
+    });
+
+    if (typeof renderSchedule === 'function') renderSchedule();
+    if (typeof renderStandings === 'function') renderStandings();
+  } catch (_) {}
+})();
 
 // Pre-tournament FIFA rankings (approximate)
 const FIFA_RANKINGS = [
@@ -3191,6 +3320,101 @@ Object.entries(GROUPS).forEach(([letter, { teams }]) => {
 
   groupsGrid.appendChild(tile);
 });
+
+// GROUP STANDINGS
+const STANDINGS_GROUPS = {
+  A: ['Mexico','South Africa','South Korea','Czechia'],
+  B: ['USA','Paraguay','Australia','Turkiye'],
+  C: ['Canada','Bosnia and Herzegovina','Qatar','Switzerland'],
+  D: ['Germany','Curacao','Ivory Coast','Ecuador'],
+  E: ['Netherlands','Japan','Sweden','Tunisia'],
+  F: ['Spain','Cape Verde','Saudi Arabia','Uruguay'],
+  G: ['Belgium','Egypt','Iran','New Zealand'],
+  H: ['France','Senegal','Iraq','Norway'],
+  I: ['Brazil','Morocco','Haiti','Scotland'],
+  J: ['Argentina','Austria','Algeria','Jordan'],
+  K: ['Portugal','DR Congo','Uzbekistan','Colombia'],
+  L: ['England','Croatia','Ghana','Panama']
+};
+
+// Build flag lookup from FIXTURES
+const FLAG_MAP = {};
+FIXTURES.forEach(f => {
+  if (f.home && f.hf) FLAG_MAP[f.home] = f.hf;
+  if (f.away && f.af) FLAG_MAP[f.away] = f.af;
+});
+
+function computeGroupStandings(teams) {
+  const stats = {};
+  teams.forEach((t, i) => {
+    stats[t] = { name: t, flag: FLAG_MAP[t] || '', mp: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, seed: i };
+  });
+  FIXTURES.filter(f => !f.ko && f.hs !== undefined).forEach(f => {
+    const h = stats[f.home], a = stats[f.away];
+    if (!h || !a) return;
+    h.mp++; a.mp++;
+    h.gf += f.hs; h.ga += f.as;
+    a.gf += f.as; a.ga += f.hs;
+    if (f.hs > f.as)      { h.w++; a.l++; }
+    else if (f.hs < f.as) { a.w++; h.l++; }
+    else                  { h.d++; a.d++; }
+  });
+  return Object.values(stats).sort((a, b) => {
+    const ap = a.w * 3 + a.d, bp = b.w * 3 + b.d;
+    if (bp !== ap) return bp - ap;
+    const agd = a.gf - a.ga, bgd = b.gf - b.ga;
+    if (bgd !== agd) return bgd - agd;
+    return b.gf - a.gf;
+  });
+}
+
+function renderStandings() {
+  const container = document.getElementById('standings-grid');
+  if (!container) return;
+  container.innerHTML = '';
+
+  Object.entries(STANDINGS_GROUPS).forEach(([letter, teams]) => {
+    const rows = computeGroupStandings(teams);
+    const color = (typeof GROUP_COLORS !== 'undefined' && GROUP_COLORS[letter]) || '#8A8580';
+    const block = document.createElement('div');
+    block.className = 'sgroup-block';
+
+    let html = `<div class="sgroup-header" style="border-left-color:${color}">
+      <span class="sgroup-letter">Group ${letter}</span>
+    </div>
+    <table class="sgroup-table">
+      <thead><tr>
+        <th class="sc-pos"></th>
+        <th class="sc-team">Team</th>
+        <th>W</th><th>D</th><th>L</th>
+        <th class="sc-pts">Pts</th>
+      </tr></thead>
+      <tbody>`;
+
+    rows.forEach((team, i) => {
+      const rank = i + 1;
+      const pts = team.w * 3 + team.d;
+      const diff = team.seed - i;
+      const arrow = diff > 0 ? '▲' : diff < 0 ? '▼' : '';
+      const arrowClass = diff > 0 ? 'arr-up' : 'arr-dn';
+      const posClass = rank <= 2 ? 'pos-q' : rank === 3 ? 'pos-t' : 'pos-e';
+      const rowClass = rank <= 2 ? 'row-q' : rank === 4 ? 'row-e' : '';
+
+      html += `<tr class="${rowClass}">
+        <td class="sc-pos"><span class="spos ${posClass}">${rank}</span>${arrow ? `<span class="${arrowClass}">${arrow}</span>` : ''}</td>
+        <td class="sc-team"><span class="s-flag">${team.flag}</span>${team.name}</td>
+        <td>${team.w}</td><td>${team.d}</td><td>${team.l}</td>
+        <td class="sc-pts">${pts}</td>
+      </tr>`;
+    });
+
+    html += '</tbody></table>';
+    block.innerHTML = html;
+    container.appendChild(block);
+  });
+}
+
+renderStandings();
 
 // ══════════════════════════════════════════════════════════════
 // SCHEDULE — REDESIGNED
@@ -3458,42 +3682,8 @@ function renderSchedule() {
 // RANKINGS
 // ══════════════════════════════════════════════════════════════
 
-const rankList = document.getElementById('rankings-list');
-
-// Lollipop chart scale: map points → horizontal % position
-const _pts = FIFA_RANKINGS.map(r => r.pts);
-const RK_MIN = 900;                          // axis floor (stems start from here)
-const RK_MAX = Math.ceil(Math.max(..._pts) / 100) * 100 + 100; // round up headroom
-function rkPos(p) { return ((p - RK_MIN) / (RK_MAX - RK_MIN)) * 100; }
-
-// Axis ticks every 200 pts
-const axisTrack = document.getElementById('rank-axis-track');
-if (axisTrack) {
-  for (let v = 1000; v <= RK_MAX - 100; v += 200) {
-    const t = document.createElement('span');
-    t.className = 'rank-tick';
-    t.style.left = rkPos(v) + '%';
-    t.textContent = v;
-    axisTrack.appendChild(t);
-  }
-}
-
-FIFA_RANKINGS.forEach((r, i) => {
-  const row = document.createElement('div');
-  row.className = 'rankings-row' + (r.host ? ' r-host' : '') + (i < 3 ? ' r-top' : '');
-  const end = rkPos(r.pts);
-  row.innerHTML = `
-    <span class="r-name">${r.name}</span>
-    <div class="r-track">
-      <div class="r-stem" style="width:${end}%"></div>
-      <div class="r-dot" style="left:${end}%"></div>
-    </div>
-    <span class="r-end-cell">
-      <span class="r-flag">${r.flag}</span>
-      <span class="r-rank">${r.wr}</span>
-    </span>`;
-  rankList.appendChild(row);
-});
+// Rankings chart is now a static image generated by:
+// python3 analytics/scripts/rankings_chart.py
 
 // ══════════════════════════════════════════════════════════════
 // MAP

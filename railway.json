@@ -4,6 +4,6 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "npx serve frontend -l $PORT"
+    "startCommand": "node server.js"
   }
 }
